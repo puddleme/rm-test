@@ -11,19 +11,6 @@
       background: #f5f5f5;
     }
 
-    input {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      width: 100%;
-      padding: 14px;
-      font-size: 18px;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      box-sizing: border-box;
-      background: white;
-    }
-
     #results {
       padding: 12px;
     }
@@ -61,13 +48,54 @@
 
     .red { border-left: 6px solid red; }
     .yellow { border-left: 6px solid gold; }
+  
+    .search-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: white;
+    }
+
+    .search-wrapper input {
+      width: 100%;
+      padding: 14px 44px 14px 14px;
+      font-size: 18px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      box-sizing: border-box;
+      background: white;
+    }
+
+    #clearBtn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      color: #999;
+      font-size: 26px;
+      line-height: 28px;
+      cursor: pointer;
+      display: none;
+      padding: 0;
+    }
+
+    #clearBtn:active {
+      color: #333;
+    }
+
   </style>
 </head>
 
 <body>
 
-<input type="text" id="search" placeholder="Search road or route...">
-
+<div class="search-wrapper">
+  <input type="text" id="search" placeholder="Search road or route...">
+  <button id="clearBtn" type="button" aria-label="Clear search">&times;</button>
+</div>
 <div id="results"></div>
 
 <script>
@@ -5640,6 +5668,7 @@ const data = [
 ];
 
 const searchInput = document.getElementById("search");
+const clearBtn = document.getElementById("clearBtn");
 const resultsDiv = document.getElementById("results");
 
 function escapeHTML(value) {
@@ -5713,18 +5742,26 @@ function filterData() {
   renderResults(filtered, rawQuery);
 }
 
-searchInput.addEventListener("input", filterData);
+searchInput.addEventListener("input", () => {
+  clearBtn.style.display = searchInput.value ? "block" : "none";
+  filterData();
+});
 
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  clearBtn.style.display = "none";
+  filterData();
+  searchInput.focus();
+});
 
 // initial load
+clearBtn.style.display = searchInput.value ? "block" : "none";
 filterData();
 
-searchInput.focus();
-
+// focus search box on load
 window.addEventListener("load", () => {
   searchInput.focus();
 });
-  
 </script>
 
 </body>
