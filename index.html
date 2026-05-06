@@ -5715,8 +5715,16 @@ function filterData() {
 
 searchInput.addEventListener("input", filterData);
 
+
 // initial load
 filterData();
+
+searchInput.focus();
+
+window.addEventListener("load", () => {
+  searchInput.focus();
+});
+  
 </script>
 
 </body>
