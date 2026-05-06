@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postal Route Lookup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      background: #f5f5f5;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .result {
+      background: white;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .road {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .meta {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .red { border-left: 6px solid red; }
+    .yellow { border-left: 6px solid gold; }
+  </style>
+</head>
+<body>
+
+<input type="text" id="search" placeholder="Search road name...">
+
+<div id="results"></div>
+
+<script>
+const data = [
+  { road: "QUEEN STREET", route: "10", colour: "" },
+  { road: "QUEENS ROAD", route: "10A", colour: "red" },
+  { road: "QUEEN ALEXANDRA ROAD", route: "11", colour: "" },
+  { road: "DEVIZES ROAD 1-187", route: "2", colour: "red" },
+  { road: "DEVIZES ROAD 240-412", route: "108A", colour: "red" },
+  { road: "DUCK LANE 1-9 ODDS", route: "40A", colour: "red" },
+  { road: "DUCK LANE REMAINDER", route: "18B", colour: "red" },
+  { road: "EAST STREET", route: "13", colour: "yellow" },
+  { road: "FAIRFIELD ROAD", route: "25A", colour: "yellow" },
+  { road: "FAIRVIEW ROAD", route: "23B", colour: "red" },
+  { road: "GEORGE STREET", route: "102", colour: "red" },
+  { road: "HARNHAM ROAD", route: "31A", colour: "red" },
+  { road: "INDIA AVENUE", route: "4A", colour: "yellow" },
+  { road: "JAMES STREET", route: "102", colour: "yellow" }
+];
+
+const searchInput = document.getElementById("search");
+const resultsDiv = document.getElementById("results");
+
+function renderResults(filtered) {
+  resultsDiv.innerHTML = "";
+
+  filtered.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "result " + (item.colour || "");
+
+    div.innerHTML = `
+      <div class="road">${item.road}</div>
+      <div class="meta">Route: ${item.route || "N/A"}</div>
+      <div class="meta">Colour: ${item.colour || "None"}</div>
+    `;
+
+    resultsDiv.appendChild(div);
+  });
+}
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+
+  const filtered = data.filter(item =>
+    item.road.toLowerCase().includes(query)
+  );
+
+  renderResults(filtered);
+});
+
+// show all initially
+renderResults(data);
+</script>
+
+</body>
+</html>
