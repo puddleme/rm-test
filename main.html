@@ -46,10 +46,6 @@
       font-weight: bold;
     }
 
-    .postcodes .highlight {
-      font-weight: bold;
-    }
-
     .extra {
       font-size: 14px;
       color: #555;
@@ -20992,11 +20988,37 @@ function buildPostcodes(item, query) {
   }
 
   const html = list.map(pc => {
-    const safe = list.length > 1
-      ? escapeHTML(pc.slice(0, common)) + `<span class="pc-diff">${escapeHTML(pc.slice(common))}</span>`
-      : escapeHTML(pc);
-    const isMatch = pcSearch && pc.toLowerCase().replace(/\s+/g, "").includes(q);
-    return isMatch ? `<span class="highlight">${safe}</span>` : safe;
+    // Work out which characters match the search, ignoring spaces,
+    // so only the matched part is highlighted (e.g. "1AD" in SP1 1AD)
+    let hlStart = -1, hlEnd = -1;
+    if (pcSearch && q) {
+      const idx = [];   // positions of non-space characters in pc
+      for (let i = 0; i < pc.length; i++) if (pc[i] !== " ") idx.push(i);
+      const pos = pc.toLowerCase().replace(/\s+/g, "").indexOf(q);
+      if (pos >= 0) {
+        hlStart = idx[pos];
+        hlEnd = idx[pos + q.length - 1] + 1;
+      }
+    }
+
+    // Split the postcode into runs of characters with the same styling
+    let out = "", run = "", runKey = "";
+    const flush = () => {
+      if (!run) return;
+      let h = escapeHTML(run);
+      if (runKey[0] === "d") h = `<span class="pc-diff">${h}</span>`;
+      if (runKey[1] === "h") h = `<span class="highlight">${h}</span>`;
+      out += h;
+      run = "";
+    };
+    for (let i = 0; i < pc.length; i++) {
+      const key = (list.length > 1 && i >= common ? "d" : "-") +
+                  (i >= hlStart && i < hlEnd ? "h" : "-");
+      if (key !== runKey) { flush(); runKey = key; }
+      run += pc[i];
+    }
+    flush();
+    return out;
   }).join(", ");
 
   return `<div class="postcodes">${html}</div>`;
