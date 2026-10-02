@@ -162,8 +162,7 @@
     <button id="clearBtn" type="button" aria-label="Clear search">&times;</button>
   </div>
   <div class="search-options">
-    <span class="options-label">Search in:</span>
-    <label><input type="checkbox" id="optRoad" checked> Road name</label>
+    <label><input type="checkbox" id="optRoad" checked> Road</label>
     <label><input type="checkbox" id="optRoute" checked> Route</label>
     <label><input type="checkbox" id="optPostcode" checked> Postcode</label>
     <span id="recordCount"></span>
@@ -20942,11 +20941,8 @@ const optRoute = document.getElementById("optRoute");
 const optPostcode = document.getElementById("optPostcode");
 const recordCount = document.getElementById("recordCount");
 
-function updateCount(shown, total) {
-  const fmt = n => n.toLocaleString("en-GB");
-  recordCount.textContent = shown === total
-    ? `${fmt(total)} records`
-    : `${fmt(shown)} of ${fmt(total)} records`;
+function updateCount(shown) {
+  recordCount.textContent = `${shown.toLocaleString("en-GB")} ${shown === 1 ? "record" : "records"}`;
 }
 const resultsDiv = document.getElementById("results");
 
@@ -21072,8 +21068,8 @@ function filterData() {
 
   if (query && !optRoad.checked && !optRoute.checked && !optPostcode.checked) {
     resultsDiv.innerHTML = "";
-    addMessage("Tick at least one of Road name, Route or Postcode to search");
-    updateCount(0, data.length);
+    addMessage("Tick at least one of Road, Route or Postcode to search");
+    updateCount(0);
     return;
   }
 
@@ -21099,7 +21095,7 @@ function filterData() {
   }
 
   renderResults(filtered.slice(0, MAX_RESULTS), rawQuery);
-  updateCount(filtered.length, data.length);
+  updateCount(Math.min(filtered.length, MAX_RESULTS));
 
   if (filtered.length > MAX_RESULTS) {
     addMessage(`Showing ${MAX_RESULTS} of ${filtered.length} matches - keep typing to narrow down`);
