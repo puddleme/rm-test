@@ -103,6 +103,10 @@
       color: #1e40af;
     }
 
+    .search-options .exact-toggle {
+      margin-left: auto;
+    }
+
     .search-options input[type="checkbox"] {
       margin: 0;
       width: 16px;
@@ -154,6 +158,7 @@
     <label><input type="checkbox" id="optRoad" checked> Road</label>
     <label><input type="checkbox" id="optRoute" checked> Route</label>
     <label><input type="checkbox" id="optPostcode" checked> Postcode</label>
+    <label class="exact-toggle"><input type="checkbox" id="optExact"> Exact match</label>
   </div>
 </div>
 <div id="results"></div>
@@ -20465,7 +20470,7 @@ const data = [
     "notes": "Village / locality"
   },
   {
-    "road": "AMESBURY HEALTH CENTRE, SP4 7AN",
+    "road": "AMESBURY HEALTH CENTRE",
     "route": "AM3",
     "postcodes": "SP4 7AN",
     "colour": "",
@@ -20473,7 +20478,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "AIRFIELD CAMP, SP4 9SF",
+    "road": "AIRFIELD CAMP",
     "route": "F8",
     "postcodes": "SP4 9SF",
     "colour": "",
@@ -20481,7 +20486,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "ASHMORE MANOR, SP5 5AL",
+    "road": "ASHMORE MANOR",
     "route": "H1",
     "postcodes": "SP5 5AL",
     "colour": "",
@@ -20489,7 +20494,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "BIDVEST FOODS LTD, SP5 3HY",
+    "road": "BIDVEST FOODS LTD",
     "route": "105",
     "postcodes": "SP5 3HY",
     "colour": "",
@@ -20497,7 +20502,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "BISHOP WORDSWORTHS SCHOOL, SP1 2ED",
+    "road": "BISHOP WORDSWORTHS SCHOOL",
     "route": "17",
     "postcodes": "SP1 2ED",
     "colour": "",
@@ -20505,7 +20510,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "BECKINGSALE HOUSE, SP1 1JB",
+    "road": "BECKINGSALE HOUSE",
     "route": "18A",
     "postcodes": "SP1 1JB",
     "colour": "",
@@ -20513,7 +20518,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "BULL HOTEL, SP5 3HL",
+    "road": "BULL HOTEL",
     "route": "D2",
     "postcodes": "SP5 3HL",
     "colour": "",
@@ -20521,7 +20526,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "CHEMRING COUNTERMEASURES LTD, SP4 6AS",
+    "road": "CHEMRING COUNTERMEASURES LTD",
     "route": "101",
     "postcodes": "SP4 6AS",
     "colour": "",
@@ -20529,7 +20534,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "CHAS H BAKER & SON (SALISBURY) LTD, SP1 2AL",
+    "road": "CHAS H BAKER & SON (SALISBURY) LTD",
     "route": "11",
     "postcodes": "SP1 2AL",
     "colour": "",
@@ -20537,7 +20542,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "CLARENDON PARK ESTATE OFFICE, SP5 3EW",
+    "road": "CLARENDON PARK ESTATE OFFICE",
     "route": "127",
     "postcodes": "SP5 3EW",
     "colour": "",
@@ -20545,7 +20550,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "C I ELECTRONICS LTD, SP2 7PX",
+    "road": "C I ELECTRONICS LTD",
     "route": "9",
     "postcodes": "SP2 7PX",
     "colour": "",
@@ -20553,7 +20558,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "COMPTON ABBAS AIRFIELD, SP5 5AP",
+    "road": "COMPTON ABBAS AIRFIELD",
     "route": "H1",
     "postcodes": "SP5 5AP",
     "colour": "",
@@ -20561,7 +20566,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "D S T L, SP4 0JQ",
+    "road": "D S T L",
     "route": "113",
     "postcodes": "SP4 0JQ",
     "colour": "",
@@ -20569,7 +20574,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "DEFENCE C B R N CENTRE, SP4 0ES",
+    "road": "DEFENCE C B R N CENTRE",
     "route": "131",
     "postcodes": "SP4 0ES",
     "colour": "",
@@ -20577,7 +20582,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "DINTON SALVAGE, SP3 4AP",
+    "road": "DINTON SALVAGE",
     "route": "DIN1",
     "postcodes": "SP3 4AP",
     "colour": "",
@@ -20585,7 +20590,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "FIVE RIVERS HEALTH & WELLBEING CENTRE, SP1 3NR",
+    "road": "FIVE RIVERS HEALTH & WELLBEING CENTRE",
     "route": "25B",
     "postcodes": "SP1 3NR",
     "colour": "",
@@ -20593,7 +20598,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "GRANIT OPS LTD, SP5 1QG",
+    "road": "GRANIT OPS LTD",
     "route": "125",
     "postcodes": "SP5 1QG",
     "colour": "",
@@ -20601,7 +20606,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "GODOLPHIN SCHOOL COOPER HOUSE, SP1 2RD",
+    "road": "GODOLPHIN SCHOOL COOPER HOUSE",
     "route": "50",
     "postcodes": "SP1 2RD",
     "colour": "",
@@ -20609,7 +20614,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "GODOLPHIN SCHOOL, SP1 2RA",
+    "road": "GODOLPHIN SCHOOL",
     "route": "50",
     "postcodes": "SP1 2RA",
     "colour": "",
@@ -20617,7 +20622,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "GARRISON MEDICAL CENTRE, SP4 8QY",
+    "road": "GARRISON MEDICAL CENTRE",
     "route": "L5",
     "postcodes": "SP4 8QY",
     "colour": "",
@@ -20625,7 +20630,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "H S B C, SP1 1TE",
+    "road": "H S B C",
     "route": "10",
     "postcodes": "SP1 1TE",
     "colour": "",
@@ -20633,7 +20638,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "JOHN JEFFERY (SALISBURY) LTD, SP1 3TT",
+    "road": "JOHN JEFFERY (SALISBURY) LTD",
     "route": "12",
     "postcodes": "SP1 3TT",
     "colour": "",
@@ -20641,7 +20646,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "KNIGHTON MANOR FARM, SP5 5EB",
+    "road": "KNIGHTON MANOR FARM",
     "route": "109",
     "postcodes": "SP5 5EB",
     "colour": "",
@@ -20649,7 +20654,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "LEEHURST SWAN SCHOOL, SP1 3BQ",
+    "road": "LEEHURST SWAN SCHOOL",
     "route": "22B",
     "postcodes": "SP1 3BQ",
     "colour": "",
@@ -20657,7 +20662,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "MYDDELTON & MAJOR, SP1 2PD",
+    "road": "MYDDELTON & MAJOR",
     "route": "15",
     "postcodes": "SP1 2PD",
     "colour": "",
@@ -20665,7 +20670,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "MARISTOW NURSING HOME, SP1 1LT",
+    "road": "MARISTOW NURSING HOME",
     "route": "23B",
     "postcodes": "SP1 1LT",
     "colour": "",
@@ -20673,7 +20678,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "MERCEDES BENZ OF SALISBURY, SP1 2JS",
+    "road": "MERCEDES BENZ OF SALISBURY",
     "route": "50",
     "postcodes": "SP1 2JS",
     "colour": "",
@@ -20681,7 +20686,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "MOLE COUNTRY STORES, SP2 7PP",
+    "road": "MOLE COUNTRY STORES",
     "route": "9",
     "postcodes": "SP2 7PP",
     "colour": "",
@@ -20689,7 +20694,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "MINISTRY OF DEFENCE, SP4 0JE",
+    "road": "MINISTRY OF DEFENCE",
     "route": "AM1",
     "postcodes": "SP4 0JE",
     "colour": "",
@@ -20697,7 +20702,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "NORMAN COURT SCHOOL, SP5 1NH",
+    "road": "NORMAN COURT SCHOOL",
     "route": "125",
     "postcodes": "SP5 1NH",
     "colour": "",
@@ -20705,7 +20710,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "NAISH FELTS LTD, SP2 0HD",
+    "road": "NAISH FELTS LTD",
     "route": "43B",
     "postcodes": "SP2 0HD",
     "colour": "",
@@ -20713,7 +20718,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "NUTSHELL PACKAGING, SP2 7PZ",
+    "road": "NUTSHELL PACKAGING",
     "route": "9",
     "postcodes": "SP2 7PZ",
     "colour": "",
@@ -20721,7 +20726,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "P H E PORTON, SP4 0JG",
+    "road": "P H E PORTON",
     "route": "113",
     "postcodes": "SP4 0JG",
     "colour": "",
@@ -20729,7 +20734,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "PARKER BULLEN, SP1 3SS",
+    "road": "PARKER BULLEN",
     "route": "12",
     "postcodes": "SP1 3SS",
     "colour": "",
@@ -20737,7 +20742,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "PYT COTTAGE, SP3 6PB",
+    "road": "PYT COTTAGE",
     "route": "T1",
     "postcodes": "SP3 6PB",
     "colour": "",
@@ -20745,7 +20750,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "RED LION HOTEL, SP1 2AN",
+    "road": "RED LION HOTEL",
     "route": "11",
     "postcodes": "SP1 2AN",
     "colour": "",
@@ -20753,7 +20758,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "ROSE & CROWN, SP2 8JQ",
+    "road": "ROSE & CROWN",
     "route": "31B",
     "postcodes": "SP2 8JQ",
     "colour": "",
@@ -20761,7 +20766,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "RUSHMORE ESTATE OFFICE, SP5 5PT",
+    "road": "RUSHMORE ESTATE OFFICE",
     "route": "H1",
     "postcodes": "SP5 5PT",
     "colour": "",
@@ -20769,7 +20774,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SOUTHON & CO LTD, SP1 2DE",
+    "road": "SOUTHON & CO LTD",
     "route": "11",
     "postcodes": "SP1 2DE",
     "colour": "",
@@ -20777,7 +20782,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "STRUTT & PARKER, SP1 2DZ",
+    "road": "STRUTT & PARKER",
     "route": "11",
     "postcodes": "SP1 2DZ",
     "colour": "",
@@ -20785,7 +20790,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SALISBURY CITY LIBRARY & ART GALLERY, SP1 1BL",
+    "road": "SALISBURY CITY LIBRARY & ART GALLERY",
     "route": "12",
     "postcodes": "SP1 1BL",
     "colour": "",
@@ -20793,7 +20798,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SALISBURY PLAYHOUSE, SP2 7RA",
+    "road": "SALISBURY PLAYHOUSE",
     "route": "13",
     "postcodes": "SP2 7RA",
     "colour": "",
@@ -20801,7 +20806,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SALISBURY CATHEDRAL SCHOOL, SP1 2EQ",
+    "road": "SALISBURY CATHEDRAL SCHOOL",
     "route": "15",
     "postcodes": "SP1 2EQ",
     "colour": "",
@@ -20809,7 +20814,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SAMPSON COWARD, SP1 2PQ",
+    "road": "SAMPSON COWARD",
     "route": "15",
     "postcodes": "SP1 2PQ",
     "colour": "",
@@ -20817,7 +20822,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SARUM COLLEGE, SP1 2EE",
+    "road": "SARUM COLLEGE",
     "route": "15",
     "postcodes": "SP1 2EE",
     "colour": "",
@@ -20825,7 +20830,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SOUTH WILTS GRAMMAR SCHOOL, SP1 3JJ",
+    "road": "SOUTH WILTS GRAMMAR SCHOOL",
     "route": "25B",
     "postcodes": "SP1 3JJ",
     "colour": "",
@@ -20833,7 +20838,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SALISBURY DISTRICT HOSPITAL, SP2 8BJ",
+    "road": "SALISBURY DISTRICT HOSPITAL",
     "route": "50",
     "postcodes": "SP2 8BJ",
     "colour": "",
@@ -20841,7 +20846,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "S F MORRISH & SONS, SP2 7BU",
+    "road": "S F MORRISH & SONS",
     "route": "9",
     "postcodes": "SP2 7BU",
     "colour": "",
@@ -20849,7 +20854,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "SANDROYD SCHOOL, SP5 5QD",
+    "road": "SANDROYD SCHOOL",
     "route": "H1",
     "postcodes": "SP5 5QD",
     "colour": "",
@@ -20857,7 +20862,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "TOURIST INFORMATION CENTRE, SP1 1EJ",
+    "road": "TOURIST INFORMATION CENTRE",
     "route": "10",
     "postcodes": "SP1 1EJ",
     "colour": "",
@@ -20865,7 +20870,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "THE CHAPTER OFFICE, SP1 2EG",
+    "road": "THE CHAPTER OFFICE",
     "route": "15",
     "postcodes": "SP1 2EG",
     "colour": "",
@@ -20873,7 +20878,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "THE RIFLES WARDROBE & MUSEUM TRUST, SP1 2EX",
+    "road": "THE RIFLES WARDROBE & MUSEUM TRUST",
     "route": "15",
     "postcodes": "SP1 2EX",
     "colour": "",
@@ -20881,7 +20886,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "THE WHITE HART, SP1 2SD",
+    "road": "THE WHITE HART",
     "route": "17",
     "postcodes": "SP1 2SD",
     "colour": "",
@@ -20889,7 +20894,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "WYVERN ST EDMUNDS SCHOOL, SP1 1RE",
+    "road": "WYVERN ST EDMUNDS SCHOOL",
     "route": "40B",
     "postcodes": "SP1 1RE",
     "colour": "",
@@ -20897,7 +20902,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "WYVERN ST. EDMUNDS ACADEMY, SP1 1RD",
+    "road": "WYVERN ST. EDMUNDS ACADEMY",
     "route": "40B",
     "postcodes": "SP1 1RD",
     "colour": "",
@@ -20905,7 +20910,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "WILTON CARPET FACTORY LTD, SP2 0AY",
+    "road": "WILTON CARPET FACTORY LTD",
     "route": "42A",
     "postcodes": "SP2 0AY",
     "colour": "",
@@ -20913,7 +20918,7 @@ const data = [
     "notes": "Large user"
   },
   {
-    "road": "WILTSHIRE COLLEGE, SP1 2LW",
+    "road": "WILTSHIRE COLLEGE",
     "route": "50",
     "postcodes": "SP1 2LW",
     "colour": "",
@@ -20927,6 +20932,13 @@ const clearBtn = document.getElementById("clearBtn");
 const optRoad = document.getElementById("optRoad");
 const optRoute = document.getElementById("optRoute");
 const optPostcode = document.getElementById("optPostcode");
+const optExact = document.getElementById("optExact");
+
+// Matches the search only as a whole word (not part of a longer word or number),
+// e.g. "castle" matches "CASTLE STREET" but not "CASTLEWAY", "12" matches "12" but not "129"
+function wholeWordRegex(query, flags) {
+  return new RegExp(`(?<![a-z0-9])${escapeRegex(query)}(?![a-z0-9])`, flags);
+}
 const resultsDiv = document.getElementById("results");
 
 function escapeHTML(value) {
@@ -20947,8 +20959,10 @@ function highlightMatch(text, query) {
 
   if (!query) return safeText;
 
-  const safeQuery = escapeRegex(query);
-  const regex = new RegExp(`(${safeQuery})`, "ig");
+  const safeQuery = escapeRegex(escapeHTML(query));
+  const regex = optExact.checked
+    ? new RegExp(`(?<![a-z0-9])(${safeQuery})(?![a-z0-9])`, "ig")
+    : new RegExp(`(${safeQuery})`, "ig");
 
   return safeText.replace(regex, `<span class="highlight">$1</span>`);
 }
@@ -20991,7 +21005,14 @@ function buildPostcodes(item, query) {
     // Work out which characters match the search, ignoring spaces,
     // so only the matched part is highlighted (e.g. "1AD" in SP1 1AD)
     let hlStart = -1, hlEnd = -1;
-    if (pcSearch && q) {
+    if (pcSearch && q && optExact.checked) {
+      if (pc.toLowerCase().replace(/\s+/g, "") === q) {
+        hlStart = 0; hlEnd = pc.length;
+      } else {
+        const m = wholeWordRegex(query.trim(), "i").exec(pc);
+        if (m) { hlStart = m.index; hlEnd = m.index + m[0].length; }
+      }
+    } else if (pcSearch && q) {
       const idx = [];   // positions of non-space characters in pc
       for (let i = 0; i < pc.length; i++) if (pc[i] !== " ") idx.push(i);
       const pos = pc.toLowerCase().replace(/\s+/g, "").indexOf(q);
@@ -21047,8 +21068,13 @@ function renderResults(filtered, query) {
 data.sort((a, b) => a.road.localeCompare(b.road));
 data.forEach(item => {
   item._road = item.road.toLowerCase();
+  // Road name without any house-number range (e.g. "MOUNT PLEASANT (TISBURY) 91-101"
+  // -> "mount pleasant (tisbury)"), so exact searches for a route like "101"
+  // don't pick up house numbers
+  item._roadName = item._road.replace(/\s+\d.*$/, "");
   item._route = (item.route || "").toLowerCase();
   item._pcs = (item.postcodes || "").toLowerCase().replace(/\s+/g, "");
+  item._pcList = item.postcodes ? item.postcodes.toLowerCase().split(", ") : [];
 });
 
 const MAX_RESULTS = 200;
@@ -21081,11 +21107,27 @@ function filterData() {
     return;
   }
 
-  let filtered = !query ? data.slice() : data.filter(item =>
-    (optRoad.checked && item._road.includes(query)) ||
-    (optRoute.checked && item._route.includes(query)) ||
-    (pcSearch && item._pcs.includes(queryNoSpace))
-  );
+  let matchesPostcode;
+  let filtered;
+
+  if (optExact.checked) {
+    const wordRe = wholeWordRegex(query, "");
+    matchesPostcode = item => item._pcList.some(pc =>
+      pc.replace(/\s+/g, "") === queryNoSpace || wordRe.test(pc)
+    );
+    filtered = !query ? data.slice() : data.filter(item =>
+      (optRoad.checked && wordRe.test(item._roadName)) ||
+      (optRoute.checked && item._route === query) ||
+      (pcSearch && matchesPostcode(item))
+    );
+  } else {
+    matchesPostcode = item => item._pcs.includes(queryNoSpace);
+    filtered = !query ? data.slice() : data.filter(item =>
+      (optRoad.checked && item._road.includes(query)) ||
+      (optRoute.checked && item._route.includes(query)) ||
+      (pcSearch && matchesPostcode(item))
+    );
+  }
 
   // When searching a route, list exact route matches first (e.g. "12" before "129")
   if (query && optRoute.checked) {
@@ -21097,8 +21139,8 @@ function filterData() {
 
   // When searching a postcode, list exact postcode matches first
   if (pcSearch) {
-    const hits = filtered.filter(i => i._pcs.includes(queryNoSpace));
-    const rest = filtered.filter(i => !i._pcs.includes(queryNoSpace));
+    const hits = filtered.filter(matchesPostcode);
+    const rest = filtered.filter(i => !matchesPostcode(i));
     filtered = hits.concat(rest);
   }
 
@@ -21123,7 +21165,7 @@ clearBtn.addEventListener("click", () => {
   searchInput.focus();
 });
 
-[optRoad, optRoute, optPostcode].forEach(cb =>
+[optRoad, optRoute, optPostcode, optExact].forEach(cb =>
   cb.addEventListener("change", filterData)
 );
 
